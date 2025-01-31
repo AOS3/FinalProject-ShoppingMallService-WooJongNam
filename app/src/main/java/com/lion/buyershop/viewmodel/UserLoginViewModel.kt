@@ -1,0 +1,71 @@
+package com.lion.buyershop.viewmodel
+
+import android.content.Context
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.focus.FocusRequester
+import androidx.lifecycle.ViewModel
+import com.lion.buyershop.BuyerApplication
+import com.lion.buyershop.util.MainScreenName
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class UserLoginViewModel @Inject constructor(
+    @ApplicationContext context: Context,
+
+) : ViewModel() {
+
+    val buyerApplication = context as BuyerApplication
+
+    // 아이디 입력 요소
+    val textFieldUserLoginIdValue = mutableStateOf("")
+    // 비밀번호 입력 요소
+    val textFieldUserLoginPasswordValue = mutableStateOf("")
+    // 자동 로그인 입력 요소
+    val checkBoxAutoLoginValue = mutableStateOf(false)
+
+    // 아이디 입력요소 포커스
+    val textFieldUserLoginIdFocusRequester = mutableStateOf(FocusRequester())
+    // 비밀번호 입력 요소 포커스
+    val textFieldUserLoginPasswordFocusRequester = mutableStateOf(FocusRequester())
+
+    // 아이디 입력 오류 다이얼로그 상태변수
+    val alertDialogUserIdState = mutableStateOf(false)
+    // 비밀번호 입력 오류 다이얼로그 상태변수
+    val alertDialogUserPwState = mutableStateOf(false)
+    // 존재하지 않는 아이디 오류 다이얼로그 상태변수
+    val alertDialogLoginFail1State = mutableStateOf(false)
+    // 잘못된 비밀번호 다이얼로그 상태변수
+    val alertDialogLoginFail2State = mutableStateOf(false)
+    // 탈퇴한 회원 다이얼로그 상태변수
+    val alertDialogLoginFail3State = mutableStateOf(false)
+
+    // 회원 가입 버튼 click
+    fun buttonUserJoinClick(){
+        buyerApplication.navHostController.navigate(MainScreenName.MAIN_SCREEN_USER_JOIN_STEP1.name)
+    }
+
+    // 로그인 버튼 click
+    fun buttonUserLoginOnClick(){
+//        if(textFieldUserLoginIdValue.value.isEmpty()){
+//            alertDialogUserIdState.value = true
+//            return
+//        }
+//
+//        if(textFieldUserLoginPasswordValue.value.isEmpty()){
+//            alertDialogUserPwState.value = true
+//            return
+//        }
+
+        // 사용자가 입력한 아이디와 비밀번호
+        val loginUserId = textFieldUserLoginIdValue.value
+        val loginUserPw = textFieldUserLoginPasswordValue.value
+
+        buyerApplication.navHostController.navigate(MainScreenName.MAIN_SCREEN_MAIN.name)
+    }
+}

@@ -174,7 +174,7 @@ fun BuyerProductInfoScreen(buyerProductInfoViewModel: BuyerProductInfoViewModel 
                     paddingTop = 20.dp,
                     modifier = Modifier.weight(1f),
                     onClick = {
-                        ///buyerProductInfoViewModel.buttonBuyMyPhoneClick()
+                        ///buyerProductInfoViewModel.buttonBuyMyPhoneClick()//test
                     }
                 )
                 Spacer(modifier = Modifier.width(16.dp))
@@ -183,7 +183,7 @@ fun BuyerProductInfoScreen(buyerProductInfoViewModel: BuyerProductInfoViewModel 
                     paddingTop = 20.dp,
                     modifier = Modifier.weight(1f),
                     onClick = {
-                        ///buyerProductInfoViewModel.buttonBuyMyPhoneClick()
+                        buyerProductInfoViewModel.buttonBuyerOrderClick()
                     }
                 )
             }

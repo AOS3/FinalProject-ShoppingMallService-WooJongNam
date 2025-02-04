@@ -21,6 +21,7 @@ import com.lion.buyershop.screen.BuyerBuyListScreen
 import com.lion.buyershop.screen.BuyerFirstScreen
 //import com.lion.buyershop.screen.BuyerFirstScreen
 import com.lion.buyershop.screen.BuyerMainScreen
+import com.lion.buyershop.screen.BuyerMyPageScreen
 import com.lion.buyershop.screen.BuyerOrderScreen
 import com.lion.buyershop.screen.BuyerProductInfoScreen
 import com.lion.buyershop.screen.UserJoinStep1Screen
@@ -56,8 +57,10 @@ fun BuyerShopMain(){
     NavHost(
         navController = navHostController,
         //startDestination = MainScreenName.MAIN_SCREEN_BUYER_MAIN.name,
-        //startDestination = MainScreenName.MAIN_SCREEN_MAIN.name,
         startDestination = MainScreenName.MAIN_SCREEN_USER_LOGIN.name,
+        //startDestination = MainScreenName.MAIN_SCREEN_MY_PAGE.name,
+        //startDestination = MainScreenName.MAIN_SCREEN_ORDER.name,
+        //startDestination = MainScreenName.MAIN_SCREEN_MY_PAGE.name,
         enterTransition = {
             fadeIn(
                 tween(300)
@@ -133,14 +136,14 @@ fun BuyerShopMain(){
             UserJoinStep2Screen(joinUserId = joinUserId, joinUserPw = joinUserPw)
         }
         composable(
-            route = MainScreenName.MAIN_SCREEN_PRODUCT_INFO.name
+            route = MainScreenName.MAIN_SCREEN_MY_PAGE.name
         ){
-            BuyerProductInfoScreen()
+            BuyerMyPageScreen()
         }
         composable(
-            route = MainScreenName.MAIN_SCREEN_PRODUCT_INFO.name
+            route = MainScreenName.MAIN_SCREEN_ORDER.name
         ){
-            BuyerProductInfoScreen()
+            BuyerOrderScreen()
         }
 
 

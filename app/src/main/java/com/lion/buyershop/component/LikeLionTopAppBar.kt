@@ -3,6 +3,7 @@ package com.lion.buyershop.component
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -15,7 +16,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 @Composable
 fun LikeLionTopAppBar(
     title:String = "",
-    navigationIconImage:ImageVector? = null,
+    navigationIconImage:ImageVector? = Icons.Default.ArrowBack,
     navigationIconOnClick:() -> Unit = {},
     menuItems : @Composable RowScope.() -> Unit = {},
 ){

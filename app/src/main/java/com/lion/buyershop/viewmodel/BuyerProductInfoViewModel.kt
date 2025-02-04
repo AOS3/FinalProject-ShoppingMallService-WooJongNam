@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.lion.buyershop.BuyerApplication
+import com.lion.buyershop.util.MainScreenName
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -20,6 +21,10 @@ class BuyerProductInfoViewModel @Inject constructor(
     val buyerApplication = context as BuyerApplication
     var selectedColor by mutableStateOf("색상선택")
     var selectedGrade by mutableStateOf("등급선택")
+    fun buttonBuyerOrderClick() {
+        buyerApplication.navHostController.navigate(MainScreenName.MAIN_SCREEN_ORDER.name)
+    }
+
 
 
 }

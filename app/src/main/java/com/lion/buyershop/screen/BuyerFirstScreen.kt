@@ -218,6 +218,42 @@ fun ProductListScreen(buyerBuyListViewModel : BuyerBuyListViewModel = hiltViewMo
     }
 }
 
+@Composable
+fun ProductListScreen2(buyerBuyListViewModel : BuyerBuyListViewModel = hiltViewModel()) {
+    val products = listOf(
+        Product(
+            imageResId = R.drawable.iphone15, // 리소스 ID 변경
+            title = "아이폰 15",
+            capacity = "256GB",
+            price = "900,000원",
+            grade = "B",
+            starRating = "5.0"
+        ),
+
+
+
+        )
+
+    Column(
+        modifier = Modifier.fillMaxWidth()
+            .clickable {
+                buyerBuyListViewModel.listItemOnClick()
+            }
+
+    ) {
+        products.forEach { product ->
+            ProductItem(
+                imageResId = product.imageResId,
+                title = product.title,
+                capacity = product.capacity,
+                price = product.price,
+                grade = product.grade,
+                starRating = product.starRating
+            )
+        }
+    }
+}
+
 data class Product(
     val imageResId: Int,
     val title: String,
